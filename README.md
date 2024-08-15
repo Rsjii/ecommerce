@@ -10,6 +10,17 @@ Welcome to **Rudra18**, a modern eCommerce platform built with ReactJS, Bootstra
 - **Global State Management**: Efficient data sharing with React Context.
 - **Responsive Design**: Optimized for both mobile and desktop devices.
 
+## 🎨 Technologies Used
+
+- **ReactJS**: For creating dynamic and interactive user interfaces.
+- **Bootstrap**: For responsive design and pre-built components.
+- **HTML & CSS**: For structuring and styling web pages.
+- **JavaScript**: For handling dynamic interactions and functionalities.
+
+## 🌐 Live Demo
+
+Check out the live version of my website at [Rudra18 ECommerce Platform](https://ecommerce.rudra18.com/).
+
 ## 📷 Screenshots
 
 ### Home Page
@@ -26,13 +37,6 @@ Welcome to **Rudra18**, a modern eCommerce platform built with ReactJS, Bootstra
 
 ### Checkout Page
 ![Home Page](screenshots/checkout.png)
-
-## 🎨 Technologies Used
-
-- **ReactJS**: For creating dynamic and interactive user interfaces.
-- **Bootstrap**: For responsive design and pre-built components.
-- **HTML & CSS**: For structuring and styling web pages.
-- **JavaScript**: For handling dynamic interactions and functionalities.
 
 ## 🔧 Installation Instructions
 
@@ -76,7 +80,4 @@ If you encounter any issues or have questions, feel free to reach out or open an
 
 ---
 
-Thank you for checking out Rudra18! Enjoy exploring and contributing to the project.
-```
-
-This `README.md` file provides a clear and structured overview of the Rudra18 project, including details on usage, contribution guidelines, licensing, and support. Adjust the placeholder links and text as needed for your specific project details.
+Thank you for checking out Rudra18! Enjoy exploring the project.
