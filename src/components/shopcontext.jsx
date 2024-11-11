@@ -1,36 +1,64 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable no-unused-vars */
-import React, { createContext, useState } from 'react'
-import { PRODUCTS, PRODUCTS1 } from '../components/products';
+// src/components/shopcontext.jsx
+import React, { createContext, useState, useEffect } from 'react';
+import { PRODUCTS, PRODUCTS1 } from './products';
+import { useAuth } from './AuthContext';
 
-// context
+// Create Context
 export const ShopContext = createContext(null);
-// function
-const getDefaultCart = () => {
-  const cart = [];
 
-  for (let i = 0; i < PRODUCTS.length + PRODUCTS1.length; i++)
-   {
-    cart[i] = 0;
-  }
-  
+// Function to get default cart
+const getDefaultCart = () => {
+  const cart = {};
+  const allProducts = [...PRODUCTS, ...PRODUCTS1];
+  allProducts.forEach((product) => {
+    cart[product.id] = 0;
+  });
   return cart;
 };
 
+// ShopContextProvider Component
+const ShopContextProvider = (props) => {
+  const { currentUser } = useAuth();
 
-const shopcontext = (props) => {
+  // Initialize cartItems state
   const [cartItems, setCartItems] = useState(getDefaultCart());
+
+  // Load cart from localStorage when user logs in
+  useEffect(() => {
+    if (currentUser) {
+      const storedCart = localStorage.getItem(`cart_${currentUser.uid}`);
+      if (storedCart) {
+        setCartItems(JSON.parse(storedCart));
+      } else {
+        setCartItems(getDefaultCart());
+      }
+    } else {
+      // Clear cart when user logs out
+      setCartItems(getDefaultCart());
+    }
+  }, [currentUser]);
+
+  // Save cart to localStorage whenever cartItems change
+  useEffect(() => {
+    if (currentUser) {
+      localStorage.setItem(`cart_${currentUser.uid}`, JSON.stringify(cartItems));
+    }
+  }, [cartItems, currentUser]);
+
+  // Cart functions
   const getTotalCartAmount = () => {
     let totalAmount = 0;
-  for (const item in cartItems) {
-    if (cartItems[item] > 0) {
-      let itemInfo = PRODUCTS.find((product) => product.id === Number(item)) 
-      || PRODUCTS1.find((product) => product.id === Number(item));
-      totalAmount += cartItems[item] * itemInfo.price;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let itemInfo =
+          PRODUCTS.find((product) => product.id === Number(item)) ||
+          PRODUCTS1.find((product) => product.id === Number(item));
+        if (itemInfo) {
+          totalAmount += cartItems[item] * itemInfo.price;
+        }
+      }
     }
-  }
-  return totalAmount.toFixed(2);
+    return totalAmount.toFixed(2);
   };
 
   const getTotalCartProducts = () => {
@@ -42,38 +70,35 @@ const shopcontext = (props) => {
     }
     return totalProducts;
   };
-  
 
   const addToCart = (productId) => {
     setCartItems((prev) => ({
       ...prev,
-      [productId]: prev[productId] + 1
+      [productId]: prev[productId] + 1,
     }));
   };
-  
+
   const removeToCart = (productId) => {
     setCartItems((prev) => ({
       ...prev,
-      [productId]: prev[productId] - 1
+      [productId]: prev[productId] - 1 < 0 ? 0 : prev[productId] - 1,
     }));
   };
-  
+
   const updateCartItemCount = (newAmount, productId) => {
     setCartItems((prev) => ({
       ...prev,
-      [productId]: newAmount
+      [productId]: newAmount < 0 ? 0 : newAmount,
     }));
   };
+
   const clearCart = () => {
-    const updatedCartItems = {};
-    for (const productId in cartItems) {
-      updatedCartItems[productId] = 0;
-    }
+    const updatedCartItems = getDefaultCart();
     setCartItems(updatedCartItems);
-  };  
+  };
 
   const resetCart = () => {
-    setCartItems([]);
+    setCartItems(getDefaultCart());
   };
 
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -85,7 +110,6 @@ const shopcontext = (props) => {
   const closeProductDetails = () => {
     setSelectedProduct(null);
   };
-  
 
   const contextValue = {
     cartItems,
@@ -101,14 +125,7 @@ const shopcontext = (props) => {
     selectedProduct,
   };
 
-  console.log(cartItems);
-
-  return (
-    <ShopContext.Provider value={contextValue}>
-      {props.children}
-    </ShopContext.Provider>
-  );
+  return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;
 };
 
-
-export default shopcontext
+export default ShopContextProvider;

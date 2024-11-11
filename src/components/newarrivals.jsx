@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { PRODUCTS } from './products';
 import { PRODUCTS1 } from './products';
 import ReactStars from "react-rating-stars-component";
+import { bottom } from '@popperjs/core';
 
 const newarrivals = () => {
   return <>
@@ -16,16 +17,9 @@ const newarrivals = () => {
           <div className="card-body">
             <p className="card-text mb-2">{product.brand}</p>
             <h5 className='mb-3'>{product.name} </h5>
-            <div className="card-footer text-center m-auto">
+            <div className="card-footer text-center m-auto ">
             <p className="fs-4 text-danger">{product.status} </p>
-            <p className="price"><span className="red"></span><strike>{product.rate} </strike></p>
             </div>
-            <div className="card-footer d-md-none">
-                <div className="d-flex justify-content-between align-items-center">
-                  <Link to='shop' className='m-auto'>View products</Link>
-                </div>
-              </div>
-
           </div>
           
         </div>

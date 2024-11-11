@@ -1,27 +1,31 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react/jsx-key */
-/* eslint-disable no-unused-vars */
-import React, { useContext } from 'react'
-import { CgShoppingCart } from 'react-icons/cg'
-import { Link } from 'react-router-dom';
-
-import ReactStars from "react-rating-stars-component";
-import { PRODUCTS } from './products';
-import { PRODUCTS1 } from './products';
-import { ShopContext } from './shopcontext'
+// src/components/shopitems.jsx
+import React from 'react';
 import Prod from './prod';
+import { PRODUCTS, PRODUCTS1 } from './products';
 
+const ShopItems = ({ searchQuery }) => {
+  // Combine all products
+  const allProducts = [...PRODUCTS, ...PRODUCTS1];
 
-const shopitems = () => {
+  // Filter products based on the search query
+  const filteredProducts = allProducts.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    product.brand.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
-  return <>
-  <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-  {[...PRODUCTS, ...PRODUCTS1].map((product) => (
-    <Prod key={product.id} data={product} />
-  ))}
-  
+  return (
+    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      {filteredProducts.length > 0 ? (
+        filteredProducts.map((product) => (
+          <Prod key={product.id} data={product} />
+        ))
+      ) : (
+        <div className="col-12">
+          <p className="text-center">No products found matching your search.</p>
         </div>
-  </>
-}
+      )}
+    </div>
+  );
+};
 
-export default shopitems
+export default ShopItems;

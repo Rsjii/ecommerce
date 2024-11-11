@@ -1,18 +1,18 @@
-  @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;400;500;600;700&display=swap');
 
-  :root{
-    --primary: #00A97F;
-    --light:rgba(133,198,218,255);
-    --dark:rgba(13,13,10,255);
-    --darker:rgba(234,157,90,255);
-    --lighter:#cbd6cf;
-    --lighter1:#c3dacc86;
-    --lighter2:#e4f0e9da;
-    --darken: #cca27e;
-    --color: orangered;
-    --search: #FF6000;
-    --primary1: #2b3d4c;
-    --primary2: #354d61;
+:root{
+  --primary: #00A97F;
+  --light:rgba(133,198,218,255);
+  --dark:rgba(13,13,10,255);
+  --darker:rgba(234,157,90,255);
+  --lighter:#cbd6cf;
+  --lighter1:#c3dacc86;
+  --lighter2:#e4f0e9da;
+  --darken: #cca27e;
+  --color: orangered;
+  --search: #FF6000;
+  --primary1: #2b3d4c;
+  --primary2: #354d61;
 }
 
 
@@ -176,6 +176,51 @@ max-width: 100%;
 .color-nav{
   color: var(--darker);
 }
+
+/* Added styles for OAuth buttons */
+.oauth-button { /* Added for OAuth buttons */
+  width: 100%;
+  padding: 12px 24px;
+  background-color: #4285F4; /* Google Blue */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.oauth-button:hover { /* Hover state for OAuth buttons */
+  background-color: #357ae8;
+}
+
+/* Optional: Differentiate between Signup and Login OAuth buttons */
+.signup .oauth-button { /* Added for Signup OAuth button */
+  background-color: #DB4437; /* Google Red */
+}
+
+.signup .oauth-button:hover { /* Hover state for Signup OAuth button */
+  background-color: #c33d2e;
+}
+
+/* Added styles for Logout button */
+.logout-button { /* Added for Logout button */
+  padding: 10px 20px;
+  background-color: var(--primary1);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.logout-button:hover { /* Hover state for Logout button */
+  background-color: transparent;
+  border: 1px solid var(--primary1);
+  color: var(--primary1);
+}
+
+/* Rest of your existing CSS below... */
 
 .banner .back-details{
   background: url(/src/assets/images/back.jpg);
@@ -448,7 +493,6 @@ color: var(--primary1);
   color: var(--search);
   border: 1px solid var(--darker);
 }
-
 .blogs .card img{
   width: 20rem;
   padding: 20px;
@@ -494,7 +538,6 @@ footer .pay img{
   border: 1px solid var(--primary);
   transition: 0.5s ease;
 }
-
 footer .pay img:hover {
   transform: translateY(-10px);
 }
@@ -526,7 +569,6 @@ footer p{
 #footer-links:hover{
   color: var(--search);
 }
-
 footer .footer-title{
   border-bottom: 2px solid var(--darken);
   width: 30%;
@@ -864,7 +906,7 @@ p{
 }
 }
 
-/* cart-ends-here */
+.cart-ends-here
 /* about starts here */
 .about-wrapper{
   background: url(/src/assets/images/about/banner.png);
@@ -1116,3 +1158,233 @@ flex: 1 1 auto;
 padding: 24px 1rem !important;
 
 }
+
+
+/* Profile page styles */
+.profile {
+  background-color: var(--lighter2);
+}
+
+.profile .card {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.profile .form-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profile p {
+  font-size: 16px;
+}
+
+.profile img {
+  max-width: 150px;
+  height: auto;
+}
+
+.profile .btn {
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.profile .alert {
+  font-size: 14px;
+}
+
+/* Ensure buttons have consistent styling */
+button {
+  padding: 12px 10px;
+  font-size: 14px;
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid var(--lighter);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* Override specific button styles if necessary */
+.logout-button, .oauth-button {
+  width: 100%;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: var(--primary1);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.logout-button:hover {
+  background-color: transparent;
+  border: 1px solid var(--primary1);
+  color: var(--primary1);
+}
+
+.oauth-button {
+  padding: 12px 24px;
+  background-color: #4285F4; /* Google Blue */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.oauth-button:hover {
+  background-color: #357ae8;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+  .profile .card {
+    padding: 20px;
+  }
+
+  .profile img {
+    max-width: 100px;
+  }
+
+  .profile .btn {
+    padding: 8px 16px;
+  }
+}
+
+
+/* User Initials Styling */
+.user-initials {
+  width: 35px;
+  height: 35px;
+  background-color: var(--primary1);
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.user-initials:hover {
+  background-color: var(--darken);
+}
+
+/* Ensure proper alignment of Logout Button */
+.logout-button {
+  padding: 8px 16px;
+  background-color: var(--primary1);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+.logout-button:hover {
+  background-color: var(--darken);
+}
+
+/* Adjust alignment for the header links */
+.navbar-middle .menu-links a {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+  .user-initials {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .logout-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+
+/* Add these styles to your existing App.css */
+
+/* Ensure product cards have a consistent height */
+.featured-products .card,
+.new-arrivals .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.featured-products .card-body,
+.new-arrivals .card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-products .card-body .mt-auto,
+.new-arrivals .card-body .mt-auto {
+  margin-top: auto;
+}
+
+/* Adjust image styling if necessary */
+.featured-products .card-img-top,
+.new-arrivals .card-img-top {
+  max-height: 220px;
+  object-fit: cover;
+}
+
+
+
+/* Styles for Order History in Profile Page */
+/* Styles for Order History in Profile Page */
+.profile .mt-5 h3 {
+  margin-bottom: 20px;
+}
+
+.profile .list-group-item {
+  margin-bottom: 10px;
+}
+
+.profile .btn-link {
+  padding: 0;
+  font-size: 14px;
+}
+
+.profile .collapse {
+  margin-top: 10px;
+}
+
+.profile .collapse p {
+  margin-bottom: 5px;
+}
+
+/* Optional: Style for User Initials in Profile */
+.user-initials-profile {
+  width: 150px;
+  height: 150px;
+  background-color: var(--primary1);
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+}
+
+/* Ensure all buttons have cursor pointer */
+button {
+  cursor: pointer;
+}
+

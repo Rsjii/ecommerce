@@ -15,7 +15,7 @@ import orders4 from '../assets/images/icons/icon5.png'
 
 
 
-import mobileImage from '../assets/images/mobileimage.jpg'
+// import mobileImage from '../assets/images/mobileimage.jpg'
 const about = () => {
 
   const [isMobile, setIsMobile] = useState(false);
