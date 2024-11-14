@@ -20,11 +20,7 @@ const newarrivals = () => {
             <div className="card-footer text-center m-auto ">
             <p className="fs-4 text-danger">{product.status} </p>
             </div>
-<<<<<<< HEAD
           </div>
-=======
-             </div>
->>>>>>> 0672bd1fd3f1f7b482650e07aa5b79ec818fc3a7
           
         </div>
         </div>
