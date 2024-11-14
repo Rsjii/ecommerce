@@ -20,11 +20,7 @@ const featuredproducts = () => {
             <div className="card-footer m-auto text-center">
             <p className='text-danger fs-4'>{product.status}</p>
             </div>
-<<<<<<< HEAD
           </div>
-=======
-           </div>
->>>>>>> 0672bd1fd3f1f7b482650e07aa5b79ec818fc3a7
           
         </div>
         </div>
