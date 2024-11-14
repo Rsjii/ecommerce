@@ -29,21 +29,12 @@ const home = () => {
   </section>
   <Hero />
 
-<<<<<<< HEAD
   <section className="featured-products p-4 container-xxl  col-12 text-center">
     <div className="row justify-content-center" >
           <h1>Featured Products</h1>
           <p>All Weather New Modern Designs</p>
        <Featuredproducts />
        </div>
-=======
-  <section className="featured-products p-4 container-xxl col-12 text-center">
-        <div className="row justify-content-center" >
-          <h1>Featured Products</h1>
-          <p>All Weather New Modern Designs</p>
-       <Featuredproducts />
-          </div>
->>>>>>> 0672bd1fd3f1f7b482650e07aa5b79ec818fc3a7
   </section>
 
   <section className="repair-services p-5 container-xxl">
@@ -56,7 +47,6 @@ const home = () => {
 
 
   <section className="featured-products p-4 container-xxl col-12 text-center">
-<<<<<<< HEAD
   
   <div className="row justify-content-center">
     <h1>New Arrivals</h1>
@@ -68,15 +58,6 @@ const home = () => {
     
 
   
-=======
-    <div className="row justify-content-center" >
-  <h1>New Arrivals</h1>
-  <p>Your Best Designer Outfits</p>
-       <Newarrivals />
-      </div>
-  </section>
-
->>>>>>> 0672bd1fd3f1f7b482650e07aa5b79ec818fc3a7
 
   <Newsletter />
   </>;
