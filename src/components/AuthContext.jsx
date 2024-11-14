@@ -1,12 +1,10 @@
 // src/components/AuthContext.jsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { auth } from '../firebase'; // Ensure correct path
+import { auth } from '../firebase'; 
 import { onAuthStateChanged } from 'firebase/auth';
 
-// Create Context
 const AuthContext = createContext();
 
-// Custom hook to use the AuthContext
 export const useAuth = () => useContext(AuthContext);
 
 // AuthProvider Component
